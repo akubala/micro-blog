@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,13 +6,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MicroBlog</title>
+    {% if title %}
+        <title>MicroBlog | {{ title }}</title>
+    {% else %}
+        <title>MicroBlog</title>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'blog/main.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <header>
-    {% include "blog/navbar.html" %}
+    {% include 'blog/navbar.html' %}
 </header>
 
 <main role="main" class="container">
