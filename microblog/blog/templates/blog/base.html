@@ -7,9 +7,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% if title %}
-        <title>MicroBlog | {{ title }}</title>
+    <title>MicroBlog | {{ title }}</title>
     {% else %}
-        <title>MicroBlog</title>
+    <title>MicroBlog</title>
     {% endif %}
     <link rel="stylesheet" href="{% static 'blog/main.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -23,15 +23,22 @@
 <main role="main" class="container">
     <div class="row">
         <div class="col-md-8">
+            {% if messages %}
+               {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
             {% block content %}{% endblock %}
         </div>
         <div class="col-md-4">
-                <h3>Sidebar</h3>
-                <p class='text-muted'>Example text</p>
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-light">Option 1</li>
-                    <li class="list-group-item list-group-item-light">Option 1</li>
-                </ul>
+            <h3>Sidebar</h3>
+            <p class='text-muted'>Example text</p>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Option 1</li>
+                <li class="list-group-item list-group-item-light">Option 1</li>
+            </ul>
         </div>
     </div>
 </main>
