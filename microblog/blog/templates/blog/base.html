@@ -30,14 +30,14 @@
         <div class="col-md-4 sidebar">
             <h3>Hello!</h3>
             {% if user.is_authenticated %}
-            <p class='text-muted'>How are you, <strong>{{ user.username }}</strong>?</p>
+                <p class='text-muted'>How are you, <strong>{{ user.username }}</strong>?</p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-light"><a href="{% url 'user-posts' request.user.username %}" class="text-decoration-none">My posts</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{% url 'profile' %}" class="text-decoration-none">Edit user profile</a></li>
+                </ul>
             {% else %}
                 <p class='text-muted'>Log in or create an account.</p>
             {% endif %}
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-light"><a href="#" class="text-decoration-none">My posts</a></li>
-                <li class="list-group-item list-group-item-light"><a href="{% url 'profile' %}" class="text-decoration-none">Edit user profile</a></li>
-            </ul>
         </div>
     </div>
 </main>
