@@ -1,32 +1,33 @@
 {% extends 'blog/base.html' %}
-
 {% block content %}
-    <h1>Posts by {{ view.kwargs.username }} - {{ page_obj.paginator.count }}</h1>
-    <div>
-        {% for post in posts %}
-            <h1><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h1>
-            <p><a href="{% url 'user-posts' post.author.username %}">By {{ post.author }}</a></p>
-            <p>{{ post.content }}</p>
-            <p>{{ post.date_posted|date:"F d, Y" }}</p>
-        {% endfor %}
-    </div>
-
-    {% if is_paginated %}
-        {% if page_obj.has_previous %}
-            <a href="?page=1">First</a>
-            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-        {% endif %}
-        {% for num in page_obj.paginator.page_range %}
-            {% if page_obj.number == num %}
-                <a href="?page={{ num }}">{{ num }}</a>
-            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                <a href="?page={{ num }}">{{ num }}</a>
+    <h3 class="mt-3">User <a href="#" class="text-decoration-none">{{ view.kwargs.username }}</a> has {{ page_obj.paginator.count }} posts</h3>
+    {% for post in posts %}
+        <div class="card home-post">
+              <h5 class="card-header"><a href="{% url 'post-detail' post.id %}" class="text-decoration-none">{{ post.title }}</a></h5>
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2"><a href="{% url 'user-posts' post.author.username %}" class="text-decoration-none">@{{ post.author }}</a></h6>
+                <p class="card-link text-muted">{{ post.date_posted|date:"F d, Y" }}</p>
+                <p class="card-text">{{ post.content }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="container page-browser text-center">
+        {% if is_paginated %}
+            {% if page_obj.has_previous %}
+                <a href="?page=1">First | </a>
+                <a href="?page={{ page_obj.previous_page_number }}"> Previous |</a>
             {% endif %}
-        {% endfor %}
-        {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}">Next</a>
-        <a href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <a href="?page={{ num }}"> {{ num }} </a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a href="?page={{ num }}"> {{ num }} </a>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="align-left"> | Next | </a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="align-right"> Last</a>
+            {% endif %}
         {% endif %}
-    {% endif %}
-
+    </div>
 {% endblock %}
