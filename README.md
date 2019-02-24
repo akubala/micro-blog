@@ -1,5 +1,12 @@
 # Micro Blog App
 
+**Features**
+
+* Register / Login user
+* Create / Update / Delete post
+* Create / Update user profile
+* Browse other users' posts
+
 ## Example usage
 
 ### Classic way
