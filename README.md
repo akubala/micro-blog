@@ -1,4 +1,4 @@
-# Micro Blog
+# Micro Blog App
 
 ## Example usage
 
@@ -15,8 +15,6 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-- Go to `localhost:8000`
-
 ### Docker way
 
 ```
@@ -26,7 +24,7 @@ cd micro-blog/microblog
 docker-compose up --build
 ```
 
-- Go to `localhost:8000`
+**By default, application is available on  `localhost:8000`**
 
 ### Available users
 
@@ -41,4 +39,5 @@ docker-compose up --build
 ### Note
 
 * Placeholders generated with [hipsum.co](https://hipsum.co/)
-* Favicon / Logo made by [Kiranshastry](https://www.flaticon.com/authors/kiranshastry) from [Flaticon](https://www.flaticon.com/)
+* Favicon / Logo made by [Kiranshastry](https://www.flaticon.com/authors/kiranshastry) from
+ [Flaticon](https://www.flaticon.com/)
