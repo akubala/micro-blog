@@ -3,7 +3,7 @@
 {% block content %}
     <div>
         <h1>{{ object.title }}</h1>
-        <p>By {{ object.author }}</p>
+        <p><a href="{% url 'user-posts' object.author.username %}">By {{ post.author }}</a></p>
         <p>{{ object.content }}</p>
         <p>{{ object.date_posted|date:"F d, Y" }}</p>
 
