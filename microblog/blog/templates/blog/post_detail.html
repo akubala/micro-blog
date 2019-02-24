@@ -1,15 +1,16 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div>
-        <h1>{{ object.title }}</h1>
-        <p><a href="{% url 'user-posts' object.author.username %}">By {{ post.author }}</a></p>
-        <p>{{ object.content }}</p>
-        <p>{{ object.date_posted|date:"F d, Y" }}</p>
-
-        {% if object.author == user %}
-        <a href="{% url 'post-update' object.id %}" class="btn btn-secondary btn-sm mt-1 mb-1">Update</a>
-        <a href="{% url 'post-delete' object.id %}" class="btn btn-danger btn-sm mt-1 mb-1">Delete</a>
-        {% endif %}
+    <div class="card home-post">
+          <h5 class="card-header"><a href="{% url 'post-detail' post.id %}" class="text-decoration-none">{{ post.title }}</a></h5>
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2"><a href="{% url 'user-posts' post.author.username %}" class="text-decoration-none">@{{ post.author }}</a></h6>
+            <p class="card-link text-muted">{{ post.date_posted|date:"F d, Y" }}</p>
+            <p class="card-text">{{ post.content }}</p>
+            {% if object.author == user %}
+                <a href="{% url 'post-update' object.id %}" class="btn btn-secondary btn-sm">Update</a>
+                <a href="{% url 'post-delete' object.id %}" class="btn btn-danger btn-sm">Delete</a>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

@@ -1,3 +1,21 @@
+
+body {
+  background: #F8F9FA !important;
+  margin-bottom: 4rem !important;
+}
+
 main {
+  margin-top: 4rem;
+}
+
+.sidebar {
   margin-top: 3rem;
+}
+
+.home-post {
+  margin: 2rem 2rem 0 0;
+}
+
+.page-browser {
+  margin-top: 2rem;
 }

@@ -3,21 +3,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MicroBlog</title>
+    <title>Micro Blog</title>
     <link rel="shortcut icon" href="{% static 'blog/favicon/favicon.png'%}" />
     <link rel="stylesheet" href="{% static 'blog/main.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <header>
     {% include 'blog/navbar.html' %}
 </header>
-
-<main role="main" class="container">
+<main class="container">
     <div class="row">
         <div class="col-md-8">
             {% if messages %}
@@ -27,19 +25,24 @@
                     </div>
                 {% endfor %}
             {% endif %}
-            {% block content %}{% endblock %}
+
+            {% block content %}
+            {% endblock %}
         </div>
-        <div class="col-md-4">
-            <h3>Sidebar</h3>
-            <p class='text-muted'>Example text</p>
+        <div class="col-md-4 sidebar">
+            <h3>Hello!</h3>
+            {% if user.is_authenticated %}
+            <p class='text-muted'>How are you, <strong>{{ user.username }}</strong>?</p>
+            {% else %}
+                <p class='text-muted'>Log in or create an account.</p>
+            {% endif %}
             <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Option 1</li>
-                <li class="list-group-item list-group-item-light">Option 1</li>
+                <li class="list-group-item list-group-item-light"><a href="#" class="text-decoration-none">My posts</a></li>
+                <li class="list-group-item list-group-item-light"><a href="{% url 'profile' %}" class="text-decoration-none">Edit user profile</a></li>
             </ul>
         </div>
     </div>
 </main>
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
