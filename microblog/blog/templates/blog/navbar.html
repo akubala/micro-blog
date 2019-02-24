@@ -1,14 +1,17 @@
+{% load static %}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'blog-home' %}">MicroBlog</a>
+    <a class="navbar-brand" href="{% url 'blog-home' %}">
+    <img src="{% static 'blog/img/logo.png'%}" width="30" height="30" class="d-inline-block align-top" alt="Website logo"> Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'blog-home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
+            <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="{% url 'blog-home' %}">Home <span class="sr-only">(current)</span></a>-->
+            <!--</li>-->
 
             {% if user.is_authenticated %}
                 <li class="nav-item">
@@ -22,7 +25,7 @@
                 </li>
             {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-link active" href="{% url 'login' %}">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'register' %}">Register</a>
