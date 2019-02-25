@@ -36,15 +36,21 @@ docker-compose up --build
 ### Available users
 
 * Admin user
-  - Username: akubala
-  - Password: student
+  - Username: *akubala*
+  - Password: *student*
 
 * Test user
-  - Username: testuser
-  - Password: testpassword
+  - Username: *testuser*
+  - Password: *testpassword*
+
+### Run basic tests
+```
+python manage.py test --failfast 
+```
 
 ### Note
 
 * Placeholders generated with [hipsum.co](https://hipsum.co/)
 * Favicon / Logo made by [Kiranshastry](https://www.flaticon.com/authors/kiranshastry) from
  [Flaticon](https://www.flaticon.com/)
+ * Inspired by [Corey Schafer](https://github.com/CoreyMSchafer)
