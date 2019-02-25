@@ -13,7 +13,7 @@
 
 ```
 cd ~
-git clone https://gitlab.com/akubala/micro-blog
+git clone https://github.com/akubala/micro-blog.git
 cd micro-blog
 virtualenv venv -p python3
 source ./venv/bin/activate
@@ -26,7 +26,7 @@ python manage.py runserver
 
 ```
 cd ~
-git clone https://gitlab.com/akubala/micro-blog
+git clone https://github.com/akubala/micro-blog.git
 cd micro-blog/microblog
 docker-compose up --build
 ```
