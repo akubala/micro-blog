@@ -48,9 +48,13 @@ docker-compose up --build
 python manage.py test --failfast 
 ```
 
-### Note
+### About
 
 * Placeholders generated with [hipsum.co](https://hipsum.co/)
 * Favicon / Logo made by [Kiranshastry](https://www.flaticon.com/authors/kiranshastry) from
  [Flaticon](https://www.flaticon.com/)
- * Inspired by [Corey Schafer](https://github.com/CoreyMSchafer)
+* Inspired by [Corey Schafer](https://github.com/CoreyMSchafer)
+
+### Note
+
+This project is no longer maintained.
