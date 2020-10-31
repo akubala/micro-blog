@@ -1,6 +1,7 @@
-auto/
-venv/
-.idea/
-__pycache__/
+# IDE
+.idea
+
+# Python
+venv
+__pycache__
 *.py[cod]
-*.retry
