@@ -9,6 +9,8 @@
 
 ## Example usage
 
+*For presentation purposes the database is not separated and dummy data is already present.*
+
 ### Classic way
 
 ```
@@ -23,9 +25,9 @@ python manage.py runserver
 ### Docker way
 
 ```
-git clone https://github.com/akubala/micro-blog.git
 cd micro-blog/microblog
-docker-compose up --build
+docker build -t micro-blog:1.0.0 .
+docker run --rm -p 8000:8000 micro-blog:1.0.0
 ```
 
 **By default, application is available on `localhost:8000` address**
