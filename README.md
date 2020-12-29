@@ -9,7 +9,9 @@
 
 ## Example usage
 
-*For presentation purposes the database is not separated and dummy data is already present.*
+For presentation purposes the database is not separated and dummy data is already present.
+
+This project is connected with [Kubernetes and automation](https://github.com/akubala/auto-k8s-playground) playground as [Helm chart](https://github.com/akubala/micro-blog-helm-chart).
 
 ### Classic way
 
